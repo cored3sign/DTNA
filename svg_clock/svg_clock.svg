@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 531.36 360" enable-background="new 0 0 531.36 360" xml:space="preserve">
+
+  <script type="text/javascript"><![CDATA[
+
+    var date = new Date();
+    alert(date.getHours());
+// "rect" may be any tag name
+var shape = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+// Set any attributes as desired
+shape.setAttribute("x", 25);
+shape.setAttribute("y", 25);
+shape.setAttribute("width",  100);
+shape.setAttribute("height", 100)
+shape.setAttribute("fill", "green");
+// Add to a parent node; document.documentElement should be the root svg element.
+// Acquiring a parent element with document.getElementById() would be safest.
+document.documentElement.appendChild(shape);
+
+    var KEY = { w:87, a:65, s:83, d:68 };
+    var moveSpeed = 5;
+    var square = document.getElementsByTagName("rect")[0];
+    var x = square.getAttribute('x')*1,
+        y = square.getAttribute('y')*1;
+    document.documentElement.addEventListener('keydown',function(evt){
+      switch (evt.keyCode){
+        case KEY.w:
+          square.setAttribute('y',y-=moveSpeed);
+          // Alternatively:
+          // square.y.baseVal.value = (y-=moveSpeed);
+        break;
+        case KEY.s:
+          square.setAttribute('y',y+=moveSpeed);
+        break;
+        case KEY.a:
+          square.setAttribute('x',x-=moveSpeed);
+        break;
+        case KEY.d:
+          square.setAttribute('x',x+=moveSpeed);
+        break;
+      }
+    },false);
+  ]]></script>
+</svg>
